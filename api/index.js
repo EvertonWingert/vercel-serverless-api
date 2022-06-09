@@ -1,4 +1,7 @@
 export default function handler(req, res) {
-	res.setHeader("Content-Type", "application/json");
-	res.json({ name: req.body });
+	if (req.method !== "POST") return;
+
+	const { name } = req.body;
+
+	res.json({ name });
 }
